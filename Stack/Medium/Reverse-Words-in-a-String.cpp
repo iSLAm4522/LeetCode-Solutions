@@ -3,7 +3,7 @@ public:
 
     string reverseWords(string str) {
         stack<char> stk;
-        string ans = "";
+        string ans = \\;
         int i = 0, j = str.length() - 1;
         while (str[i] == ' ')
             i++;
@@ -17,7 +17,7 @@ public:
         }
 
         while (!stk.empty()) {
-            string subStr = "";
+            string subStr = \\;
             while (!stk.empty() && stk.top() != ' ') {
                 subStr = stk.top() + subStr;
                 stk.pop();
@@ -25,7 +25,7 @@ public:
             ans += subStr;
             if(stk.size() > 1){
                 stk.pop();
-                ans+= " ";
+                ans+= \ \;
             }
         }
         return ans;
