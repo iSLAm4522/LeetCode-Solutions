@@ -25,7 +25,7 @@ public:
             ans += subStr;
             if(stk.size() > 1){
                 stk.pop();
-                ans+= "";
+                ans+= " ";
             }
         }
         return ans;
