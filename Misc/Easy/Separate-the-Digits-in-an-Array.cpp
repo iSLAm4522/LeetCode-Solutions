@@ -1,9 +1,9 @@
 class Solution {
 public:
-    void separateDigitsHelper(vector<int>& vec, int num){
+    inline void separateDigitsHelper(vector<int>& vec, int num){
         if(num == 0) return;
         separateDigitsHelper(vec, num / 10);
-        vec.push_back(num%10);
+        vec.push_back(num % 10);
     }
     vector<int> separateDigits(vector<int>& nums) {
         vector<int> ans;
