@@ -1,0 +1,2 @@
+*.tsql linguist-detectable=true
+*.tsql linguist-language=TSQL
