@@ -1,0 +1,14 @@
+CREATE FUNCTION getNthHighestSalary(@N INT) RETURNS INT
+AS
+BEGIN
+    IF @N <= 0
+        RETURN NULL;
+
+    RETURN (
+        SELECT DISTINCT salary
+        FROM Employee
+        ORDER BY salary DESC
+        OFFSET @N - 1 ROWS
+        FETCH NEXT 1 ROW ONLY
+    );
+END
