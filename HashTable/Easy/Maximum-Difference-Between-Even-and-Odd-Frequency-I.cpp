@@ -4,16 +4,11 @@ public:
         unordered_map<char, int> freqMap;
         for (const auto& ch : s)
             freqMap[ch]++;
-        int maxDiff = INT_MIN;
-        for (const auto& pair1 : freqMap) {
-            if(pair1.second % 2 == 0)
-                continue;
-            for (const auto& pair2 : freqMap) {
-                if(pair2.second % 2 != 0)
-                    continue;
-                maxDiff = max(maxDiff, pair1.second - pair2.second);
-            }
+        int maxOdd = INT_MIN, minEven = INT_MAX;
+        for (const auto& pair : freqMap) {
+            if(pair.second % 2 == 0) minEven = min(minEven, pair.second);
+            else maxOdd = max(maxOdd, pair.second);
         }
-        return maxDiff;
+        return maxOdd - minEven;
     }
 };
