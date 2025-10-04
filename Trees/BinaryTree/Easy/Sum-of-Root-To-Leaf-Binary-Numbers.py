@@ -6,13 +6,12 @@
 #         self.right = right
 class Solution:
 
-    def sumRootToLeaf(self, root: Optional[TreeNode], path_sum: str = "") -> int:
+    def sumRootToLeaf(self, root: Optional[TreeNode], val:int=0) -> int:
         if not root:
             return 0
-        path_sum += f"{root.val}"
-        if not root.left and not root.right:
-            return int(path_sum, 2)
-        left_sum = self.sumRootToLeaf(root.left, path_sum)
-        right_sum = self.sumRootToLeaf(root.right, path_sum)
+        val = val * 2 + root.val
+        if root.left == root.right:
+            return val
+        left_sum = self.sumRootToLeaf(root.left, val)
+        right_sum = self.sumRootToLeaf(root.right, val)
         return left_sum + right_sum
-
